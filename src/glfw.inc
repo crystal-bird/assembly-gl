@@ -1,6 +1,9 @@
 
 ; From glfw3.h
 
+%ifndef __glfw3_inc__
+%define __glfw3_inc__
+
 [extern glfwInit]
 [extern glfwTerminate]
 
@@ -23,3 +26,5 @@
 %define GLFW_OPENGL_ANY_PROFILE              0
 %define GLFW_OPENGL_CORE_PROFILE    0x00032001
 %define GLFW_OPENGL_COMPAT_PROFILE  0x00032002
+
+%endif

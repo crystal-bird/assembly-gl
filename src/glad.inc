@@ -1,6 +1,9 @@
 
 ; From glad.h
 
+%ifndef __glad_inc__
+%define __glad_inc__
+
 [extern gladLoadGLLoader]
 
 [extern glad_glClearBufferfv]
@@ -1814,3 +1817,5 @@
 %define GL_MAX_TEXTURE_MAX_ANISOTROPY 0x84FF
 %define GL_TRANSFORM_FEEDBACK_OVERFLOW 0x82EC
 %define GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW 0x82ED
+
+%endif

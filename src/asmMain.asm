@@ -3,13 +3,14 @@
 
 %define NULL 0
 
+%include "macros.inc"
+
 %include "glfw.inc"
 %include "glad.inc"
 
 [section .text]
 
-    [global asmMain]
-    asmMain:
+    proc asmMain
 
         push        rbp
         mov         rbp, rsp
