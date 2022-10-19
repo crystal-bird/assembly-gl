@@ -3,13 +3,24 @@
 
 %define NULL 0
 
-%define GL_COLOR 0x1800
-%define GL_DEPTH_STENCIL 0x84F9
+%define GLFW_CONTEXT_VERSION_MAJOR  0x00022002
+%define GLFW_CONTEXT_VERSION_MINOR  0x00022003
+
+%define GLFW_OPENGL_PROFILE         0x00022008
+
+%define GLFW_OPENGL_ANY_PROFILE              0
+%define GLFW_OPENGL_CORE_PROFILE    0x00032001
+%define GLFW_OPENGL_COMPAT_PROFILE  0x00032002
+
+%define GL_COLOR                    0x1800
+%define GL_DEPTH_STENCIL            0x84F9
 
 [section .text]
 
     [extern glfwInit]
     [extern glfwTerminate]
+
+    [extern glfwWindowHint]
 
     [extern glfwCreateWindow]
     [extern glfwMakeContextCurrent]
@@ -36,6 +47,21 @@
         ; Initialize GLFW
         ; ----------------------------------------------------------------------------------------------------------------------------
         call        glfwInit
+
+        ; ----------------------------------------------------------------------------------------------------------------------------
+        ; Window hints
+        ; ----------------------------------------------------------------------------------------------------------------------------
+        mov         ecx, GLFW_CONTEXT_VERSION_MAJOR
+        mov         edx, 4
+        call        glfwWindowHint
+
+        mov         ecx, GLFW_CONTEXT_VERSION_MINOR
+        mov         edx, 6
+        call        glfwWindowHint
+
+        mov         ecx, GLFW_OPENGL_PROFILE
+        mov         edx, GLFW_OPENGL_CORE_PROFILE
+        call        glfwWindowHint
 
         ; ----------------------------------------------------------------------------------------------------------------------------
         ; Create window, glfwCreateWindow(1600, 900, window_name, NULL, NULL);
