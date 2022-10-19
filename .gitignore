@@ -1,0 +1,6 @@
+.vscode
+.xmake
+bin
+bin-int
+build
+dummy
